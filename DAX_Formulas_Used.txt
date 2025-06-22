@@ -1,0 +1,114 @@
+
+📘 DAX Measures Used in Power BI Project
+
+📅 Year-wise Profit Calculation
+---------------------------------
+2016 profit = CALCULATE([Total_Profit], Store[Year] = 2016)
+2017 profit = CALCULATE([Total_Profit], Store[Year] = 2017)
+
+🕓 Time-Based Measures
+------------------------
+Average Delivery Time = AVERAGE(Store[Datediff])
+DATESBETWEEN = CALCULATE([Total_Profit], DATESBETWEEN(calender[Date], "24-09-2017", "30-09-2017"))
+DATESINPERIOD = CALCULATE([Total_Profit], DATESINPERIOD(calender[Date], "24-09-2014", 7, DAY))
+YTD = TOTALYTD([Total_Profit], calender[Date])
+QTD = TOTALQTD([Total_Profit], calender[Date])
+sameperiodlastyear = CALCULATE([Total_Profit], SAMEPERIODLASTYEAR(calender[Date]))
+Parallel Period profit = CALCULATE([Total_Profit], PARALLELPERIOD(calender[Date], -1, MONTH))
+Parallel Period sales = CALCULATE([Total_Sales], PARALLELPERIOD(calender[Date], -1, MONTH))
+
+📊 Category-Based Sales & Profit
+----------------------------------
+Sales of Furniture = CALCULATE([Total_Sales], Store[Category] = "Furniture")
+Sales of Supplies = CALCULATE([Total_Sales], Store[Category] = "Office Supplies")
+Sales of Technology = CALCULATE([Total_Sales], Store[Category] = "Technology")
+supplies_profit = CALCULATE([Total_Profit], Store[Category] = "Office Supplies")
+
+📈 Contribution Calculations
+------------------------------
+CALCULATE = CALCULATE([Total_Sales], ALL(Store[Category]))
+Contribution by profit = [Total_Profit] / [CALCULATE]
+Contribution by sales = [Total_Sales] / [CALCULATE]
+Remove_Filters = CALCULATE([Total_Sales], REMOVEFILTERS(Store[Sub-Category]))
+Total Profit Contribution of each sub_Category = [Total_Profit] / [Remove_Filters]
+Total Sales Contribution of each sub_Category = [Total_Sales] / [Remove_Filters]
+
+📌 Total KPIs
+---------------
+Total_Profit = SUM(Store[Profit])
+Total_Sales = SUM(Store[Sales])
+Sales/profit% = [Total_Profit] / [Total_Sales]
+
+📦 Count Measures
+-------------------
+countrows = COUNTROWS(Store)
+Total_Quantity_Sold_across_all_Office_Supplies = COUNTROWS(FILTER('Store', Store[Category] = "Office Supplies"))
+Total_Quantity_Sold_across_all_Technology = COUNTROWS(FILTER('Store', Store[Category] = "Technology"))
+Total_Quantity_Sold_across_Furniture = COUNTROWS(FILTER('Store', Store[Category] = "Furniture"))
+
+🏆 Ranking
+-----------
+Rank = RANKX(ALL(Store[State]), [Total_Profit], , DESC)
+
+🧠 Additional Power BI Features Used
+-------------------------------------
+
+🔍 Tooltip Page
+----------------
+
+A custom tooltip was created for Sub-Category-wise Profit Performance
+
+Applied on Page 3 over the chart titled "Total Profit by Category & Sub-Category"
+
+Tooltip page is titled "Sub-Category" and enhances visual storytelling and interactivity
+
+🏠 Navigation Button
+---------------------
+
+A Home Button is added only on the last page of the report
+
+Also added on the tooltip page in case someone lands there accidentally
+
+Allows users to navigate back to the main dashboard easily
+
+Enhances overall report navigation and user experience
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
