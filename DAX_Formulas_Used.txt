@@ -57,58 +57,13 @@ Rank = RANKX(ALL(Store[State]), [Total_Profit], , DESC)
 ----------------
 
 A custom tooltip was created for Sub-Category-wise Profit Performance
-
 Applied on Page 3 over the chart titled "Total Profit by Category & Sub-Category"
-
 Tooltip page is titled "Sub-Category" and enhances visual storytelling and interactivity
 
 🏠 Navigation Button
 ---------------------
 
 A Home Button is added only on the last page of the report
-
 Also added on the tooltip page in case someone lands there accidentally
-
 Allows users to navigate back to the main dashboard easily
-
 Enhances overall report navigation and user experience
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
